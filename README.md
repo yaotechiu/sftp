@@ -36,7 +36,7 @@ Easy to use SFTP ([SSH File Transfer Protocol](https://en.wikipedia.org/wiki/SSH
 ## Simplest docker run example
 
 ```
-docker run -p 22:22 -d atmoz/sftp foo:pass:::upload
+docker run -p 22:22 -d atmoz/sftp <username>:<password>:::upload
 ```
 
 User "foo" with password "pass" can login with sftp and upload files to a folder called "upload". No mounted directories or custom UID/GID. Later you can inspect the files and use `--volumes-from` to mount them somewhere else (or see next example).
@@ -48,9 +48,9 @@ Let's mount a directory and set UID:
 ```
 docker run \
     --name usagi-sftp
-    -v <host-dir>/upload:/home/foo/upload \
+    -v <host-dir>:/home/<username/upload \
     -p 2222:22 -d atmoz/sftp \
-    foo:pass:1001
+    <username>:<password>:1001
 ```
 
 ### Using Docker Compose:
@@ -59,10 +59,10 @@ docker run \
 sftp:
     image: atmoz/sftp
     volumes:
-        - <host-dir>/upload:/home/foo/upload
+        - <host-dir>:/home/<username>/upload
     ports:
         - "2222:22"
-    command: foo:pass:1001
+    command: <username>:<password>:1001
 ```
 
 - **We need to set the shared folder to chmod 777**
