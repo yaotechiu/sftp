@@ -47,6 +47,7 @@ Let's mount a directory and set UID:
 
 ```
 docker run \
+    --name usagi-sftp
     -v <host-dir>/upload:/home/foo/upload \
     -p 2222:22 -d atmoz/sftp \
     foo:pass:1001
