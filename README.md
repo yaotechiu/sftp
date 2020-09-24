@@ -64,6 +64,8 @@ sftp:
     command: foo:pass:1001
 ```
 
+- **We need to set the shared folder to chmod 777**
+
 ### Logging in
 
 The OpenSSH server runs by default on port 22, and in this example, we are forwarding the container's port 22 to the host's port 2222. To log in with the OpenSSH client, run: `sftp -P 2222 foo@<host-ip>`
