@@ -68,9 +68,11 @@ sftp:
 - **We need to set the shared folder to chmod 777**
 
 ### Logging in
+- use sftp:
+	- The OpenSSH server runs by default on port 22, and in this example, we are forwarding the container's port 22 to the host's port 2222. To log in with the OpenSSH client, run: `sftp -P 2222 foo@<host-ip>/upload`
 
-The OpenSSH server runs by default on port 22, and in this example, we are forwarding the container's port 22 to the host's port 2222. To log in with the OpenSSH client, run: `sftp -P 2222 foo@<host-ip>`
-
+- use sshfs:
+	- `sshfs foo@<host-ip>:/home/<userbane>/upload <local mount point> -p 2222`
 ## Store users in config
 
 ```
