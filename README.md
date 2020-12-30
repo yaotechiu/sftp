@@ -65,7 +65,7 @@ sftp:
     command: <username>:<password>:1001
 ```
 
-- The UID(1001) is optional, you can just set <username>:<password>:<UID> and let UID blank ==> <username>:<password>
+- The UID(1001) is optional, you can just set \<username\>:\<password\>:\<UID\> and let UID blank ==> \<username\>:\<password\>
 - ==**We need to set the shared folder to chmod 777**==
 
 ### Logging in
